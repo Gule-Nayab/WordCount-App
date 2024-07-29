@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Count WebApp</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #24262b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        #textbox {
+            width: 100%;
+            height: 200px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            resize: none;
+            box-sizing: border-box;
+        }
+
+        p {
+            color: #555;
+            font-size: 18px;
+        }
+
+        .counter {
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 30px;
+            color: #888;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Word and Character Counter</h1>
+        <textarea name="Text" id="textbox" placeholder="Type or paste your text here..."></textarea>
+        <p>
+            <span id="words" class="counter">0</span> words and
+            <span id="char" class="counter">0</span> characters
+        </p>
+        <div class="footer">
+            &copy; 2024 Word Count WebApp
+        </div>
+    </div>
+    <script>
+        const textbox = document.getElementById("textbox");
+
+        textbox.addEventListener('input', function () {
+            const text = this.value.trim();
+            const charCount = text.length;
+            const wordCount = text ? text.split(/\s+/).filter(Boolean).length : 0;
+
+            document.getElementById("char").textContent = charCount;
+            document.getElementById("words").textContent = wordCount;
+        });
+    </script>
+</body>
+
+</html>
